@@ -4,291 +4,307 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Miguel Ángel Mialdea · Senior Android Engineer</title>
-<meta name="description" content="Senior Android Engineer with ~5 years building native Kotlin apps for Fintech (Santander, Openbank). Kotlin, Jetpack Compose, KMP, Clean Architecture. Based in Valencia, available remotely." />
+<meta name="description" content="Senior Android Engineer with ~5 years building native Kotlin apps for Fintech (Santander, Openbank). Kotlin, Jetpack Compose, KMP, Clean Architecture. Based in Valencia, Spain — available remotely." />
 <meta property="og:title" content="Miguel Ángel Mialdea · Senior Android Engineer" />
 <meta property="og:description" content="Native Android / Kotlin / KMP engineer. Fintech-grade apps, Clean Architecture, and AI tooling." />
 <meta property="og:type" content="website" />
-<meta name="theme-color" content="#0a0e14" />
+<meta name="theme-color" content="#0f172a" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0a0e14; --bg2:#0e131c; --card:#111826; --line:#1e2a3a;
-    --text:#e6edf5; --dim:#8a97a8; --faint:#5b6676;
-    --accent:#4dd6a0; --accent2:#5aa9ff; --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Roboto Mono",monospace;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --bg:#0f172a;            /* slate-900 */
+    --text-hi:#e2e8f0;       /* slate-200 */
+    --text:#94a3b8;          /* slate-400 */
+    --text-lo:#64748b;       /* slate-500 */
+    --accent:#5eead4;        /* teal-300 */
+    --card-hover:rgba(148,163,184,.06);
+    --card-line:rgba(148,163,184,.12);
+    --pill-bg:rgba(94,234,212,.10);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Roboto Mono",monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
-  .mono{font-family:var(--mono)}
-  .accent{color:var(--accent)}
-  .accent2{color:var(--accent2)}
+  ::selection{background:rgba(94,234,212,.25);color:var(--text-hi)}
 
-  /* NAV */
-  nav{position:sticky;top:0;z-index:50;background:rgba(10,14,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .logo{font-family:var(--mono);font-weight:600;letter-spacing:.5px}
-  .logo .accent{color:var(--accent)}
-  .navlinks{display:flex;gap:26px;font-size:14px}
-  .navlinks a{color:var(--dim);transition:color .2s}
-  .navlinks a:hover{color:var(--text)}
-  @media(max-width:640px){.navlinks{display:none}}
+  /* spotlight that follows the cursor */
+  #spot{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(600px at 50% 30%,rgba(29,78,116,.18),transparent 80%);}
 
-  /* HERO */
-  header{padding:96px 0 72px;position:relative}
-  .kicker{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:1px;margin-bottom:20px}
-  .kicker .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:8px;box-shadow:0 0 10px var(--accent);animation:pulse 2.4s infinite}
+  .layout{position:relative;z-index:1;max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:minmax(380px,42%) 1fr;gap:0 24px;padding:0 48px}
+
+  /* ── LEFT (sticky) ── */
+  .left{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;
+    justify-content:space-between;padding:88px 24px 64px 0}
+  h1{font-size:clamp(38px,4.4vw,50px);font-weight:700;letter-spacing:-1.2px;color:var(--text-hi);line-height:1.05}
+  h1 a:hover{color:var(--accent)}
+  .role{font-size:clamp(17px,1.8vw,21px);font-weight:500;color:var(--text-hi);margin-top:14px}
+  .tag{margin-top:14px;max-width:330px;font-size:15.5px}
+  .tag b{color:var(--text-hi);font-weight:500}
+  .loc{font-family:var(--mono);font-size:12.5px;color:var(--text-lo);margin-top:18px;letter-spacing:.6px}
+  .loc .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);
+    margin-right:8px;box-shadow:0 0 8px var(--accent);animation:pulse 2.4s infinite;vertical-align:1px}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-  h1{font-size:clamp(34px,6vw,58px);line-height:1.05;font-weight:700;letter-spacing:-1px}
-  .sub{font-size:clamp(18px,2.6vw,24px);color:var(--dim);margin-top:18px;max-width:640px}
-  .sub b{color:var(--text);font-weight:600}
-  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;font-family:var(--mono);font-size:13px}
-  .chip{border:1px solid var(--line);background:var(--bg2);padding:7px 13px;border-radius:999px;color:var(--dim)}
-  .chip b{color:var(--accent2);font-weight:500}
-  .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
-  .btn{font-family:var(--mono);font-size:14px;padding:12px 22px;border-radius:8px;border:1px solid var(--line);transition:.2s;cursor:pointer}
-  .btn.primary{background:var(--accent);color:#06231a;border-color:var(--accent);font-weight:600}
-  .btn.primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
-  .btn.ghost:hover{border-color:var(--accent2);color:var(--accent2)}
 
-  /* SECTION */
-  section{padding:60px 0;border-top:1px solid var(--line)}
-  .sec-label{font-family:var(--mono);font-size:13px;color:var(--faint);letter-spacing:2px;text-transform:uppercase;margin-bottom:26px}
-  .sec-label::before{content:"// ";color:var(--accent)}
-  h2{font-size:clamp(24px,4vw,34px);font-weight:700;letter-spacing:-.5px;margin-bottom:8px}
+  .navcol{margin-top:60px;display:flex;flex-direction:column;gap:16px}
+  .navcol a{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px;
+    letter-spacing:2px;color:var(--text-lo);width:max-content;transition:color .2s}
+  .navcol a::before{content:"";height:1px;width:32px;background:var(--text-lo);transition:all .25s}
+  .navcol a:hover,.navcol a.active{color:var(--text-hi)}
+  .navcol a:hover::before,.navcol a.active::before{width:64px;background:var(--accent)}
 
-  .lead{color:var(--dim);font-size:17px;max-width:680px}
-  .lead b{color:var(--text)}
+  .social{display:flex;gap:20px;align-items:center}
+  .social a{color:var(--text-lo);transition:color .2s,transform .2s;display:inline-flex}
+  .social a:hover{color:var(--accent);transform:translateY(-2px)}
+  .social svg{width:22px;height:22px;fill:currentColor}
 
-  /* STACK */
-  .stack{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:8px}
-  .scat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
-  .scat h3{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.5px;margin-bottom:12px;font-weight:600}
-  .scat ul{list-style:none;display:flex;flex-wrap:wrap;gap:7px}
-  .scat li{font-family:var(--mono);font-size:12.5px;color:var(--dim);background:var(--bg2);border:1px solid var(--line);padding:4px 9px;border-radius:6px}
+  /* ── RIGHT (scroll) ── */
+  .right{padding:88px 0 96px}
+  section{margin-bottom:96px;scroll-margin-top:80px}
+  .m-label{display:none}
 
-  /* EXPERIENCE */
-  .job{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line)}
-  .job:last-child{border-bottom:none}
-  .job .when{font-family:var(--mono);font-size:13px;color:var(--faint)}
-  .job .when .co{display:block;color:var(--accent2);font-size:15px;margin-top:4px}
-  .job h3{font-size:19px;font-weight:650;margin-bottom:4px}
-  .job .role-sub{color:var(--faint);font-family:var(--mono);font-size:12.5px;margin-bottom:14px}
-  .job ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-  .job li{position:relative;padding-left:20px;color:var(--dim);font-size:15px}
-  .job li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
-  .job li b{color:var(--text);font-weight:600}
-  @media(max-width:640px){.job{grid-template-columns:1fr;gap:10px}}
+  .about p{max-width:560px;font-size:16px;margin-bottom:16px}
+  .about b{color:var(--text-hi);font-weight:500}
+  .about .hl{color:var(--accent)}
 
-  /* PROJECT */
-  .proj{background:linear-gradient(160deg,var(--card),#0c1220);border:1px solid var(--line);border-radius:16px;padding:34px;position:relative;overflow:hidden}
-  .proj::before{content:"";position:absolute;top:-40%;right:-10%;width:340px;height:340px;background:radial-gradient(circle,rgba(77,214,160,.10),transparent 70%);pointer-events:none}
-  .proj .ptop{display:flex;align-items:center;gap:12px;margin-bottom:6px}
-  .proj .ptag{font-family:var(--mono);font-size:11px;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:3px 10px}
-  .proj h3{font-size:24px;font-weight:700}
-  .proj .pdesc{color:var(--dim);margin:14px 0 22px;max-width:640px;font-size:15.5px}
-  .proj .pdesc b{color:var(--text)}
-  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
-  .feat div{border-left:2px solid var(--line);padding-left:14px}
-  .feat h4{font-size:14px;margin-bottom:3px}
-  .feat p{font-size:13.5px;color:var(--faint);font-family:var(--mono)}
-  .ptech{display:flex;flex-wrap:wrap;gap:8px}
-  .ptech span{font-family:var(--mono);font-size:12px;color:var(--dim);background:var(--bg);border:1px solid var(--line);padding:5px 11px;border-radius:6px}
-  .pnote{margin-top:22px;font-size:12.5px;color:var(--faint);font-family:var(--mono);border-top:1px dashed var(--line);padding-top:16px}
+  /* cards (experience + work) */
+  .cards{display:flex;flex-direction:column;gap:6px}
+  .card{display:grid;grid-template-columns:132px 1fr;gap:18px;padding:20px;border-radius:10px;
+    border:1px solid transparent;transition:background .25s,border-color .25s,opacity .25s}
+  .cards:hover .card{opacity:.55}
+  .cards .card:hover{opacity:1;background:var(--card-hover);border-color:var(--card-line);
+    box-shadow:0 6px 24px rgba(2,6,23,.4)}
+  .when{font-family:var(--mono);font-size:11.5px;color:var(--text-lo);letter-spacing:.8px;
+    text-transform:uppercase;padding-top:4px}
+  .card h3{font-size:16.5px;font-weight:600;color:var(--text-hi)}
+  .card h3 .co{color:var(--text-hi)}
+  .card:hover h3 .co{color:var(--accent)}
+  .card h3 .arrow{display:inline-block;transition:transform .2s;font-size:14px}
+  .card:hover h3 .arrow{transform:translate(3px,-3px)}
+  .sub{font-family:var(--mono);font-size:12px;color:var(--text-lo);margin-top:2px}
+  .card p{font-size:14.5px;margin-top:10px}
+  .card p b,.card li b{color:var(--text-hi);font-weight:500}
+  .card ul.points{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:8px}
+  .card ul.points li{position:relative;padding-left:18px;font-size:14.5px}
+  .card ul.points li::before{content:"▹";position:absolute;left:0;color:var(--accent)}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;list-style:none}
+  .pills li{font-family:var(--mono);font-size:11.5px;color:var(--accent);background:var(--pill-bg);
+    border-radius:999px;padding:5px 12px}
 
-  /* CONTACT */
-  .contact{text-align:center;padding:72px 0}
-  .contact h2{margin-bottom:14px}
-  .contact p{color:var(--dim);max-width:520px;margin:0 auto 28px}
-  .links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--faint);font-family:var(--mono);font-size:12.5px}
+  /* numbers strip */
+  .nums{display:flex;gap:40px;flex-wrap:wrap;margin-top:34px}
+  .nums div{min-width:120px}
+  .nums .n{font-size:26px;font-weight:700;color:var(--text-hi);letter-spacing:-.5px}
+  .nums .n span{color:var(--accent)}
+  .nums .d{font-family:var(--mono);font-size:11.5px;color:var(--text-lo);letter-spacing:.5px;margin-top:2px}
 
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  /* project featured card */
+  .proj{border:1px solid var(--card-line);border-radius:14px;padding:30px;
+    background:linear-gradient(160deg,rgba(148,163,184,.05),rgba(15,23,42,0));
+    transition:border-color .25s,box-shadow .25s;position:relative;overflow:hidden}
+  .proj:hover{border-color:rgba(94,234,212,.35);box-shadow:0 10px 34px rgba(2,6,23,.5)}
+  .ptag{font-family:var(--mono);font-size:10.5px;letter-spacing:2px;color:var(--accent);
+    border:1px solid rgba(94,234,212,.4);border-radius:999px;padding:4px 12px;display:inline-block}
+  .proj h3{font-size:22px;font-weight:700;color:var(--text-hi);margin-top:14px}
+  .proj>p{font-size:15px;margin-top:12px;max-width:600px}
+  .proj>p b{color:var(--text-hi);font-weight:500}
+  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:22px}
+  .feat div{border-left:2px solid var(--card-line);padding-left:12px}
+  .feat h4{font-size:13.5px;color:var(--text-hi);font-weight:600}
+  .feat p{font-family:var(--mono);font-size:12px;color:var(--text-lo)}
+  .pnote{margin-top:22px;padding-top:16px;border-top:1px dashed var(--card-line);
+    font-family:var(--mono);font-size:12px;color:var(--text-lo)}
+
+  /* education + footer */
+  .edu{display:flex;flex-direction:column;gap:10px;font-size:14.5px}
+  .edu b{color:var(--text-hi);font-weight:500}
+  .edu span{font-family:var(--mono);font-size:12px;color:var(--text-lo)}
+  .foot{font-family:var(--mono);font-size:12px;color:var(--text-lo);max-width:480px}
+  .foot a{color:var(--text);border-bottom:1px solid transparent}
+  .foot a:hover{color:var(--accent)}
+
+  .cta-inline{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;
+    color:var(--accent);border:1px solid rgba(94,234,212,.4);border-radius:8px;padding:11px 20px;
+    margin-top:28px;transition:background .2s}
+  .cta-inline:hover{background:var(--pill-bg)}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
   .reveal.in{opacity:1;transform:none}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.kicker .dot{animation:none}}
+
+  /* ── MOBILE ── */
+  @media(max-width:880px){
+    .layout{display:block;padding:0 26px}
+    .left{position:static;height:auto;padding:72px 0 20px;justify-content:flex-start}
+    .navcol{display:none}
+    .social{margin-top:28px}
+    .right{padding:28px 0 80px}
+    section{margin-bottom:64px}
+    .m-label{display:block;font-family:var(--mono);font-size:12px;letter-spacing:2.5px;
+      color:var(--text-hi);text-transform:uppercase;margin-bottom:22px;
+      position:sticky;top:0;background:rgba(15,23,42,.85);backdrop-filter:blur(8px);
+      padding:14px 0;z-index:5}
+    .m-label::before{content:"// ";color:var(--accent)}
+    .card{grid-template-columns:1fr;gap:6px;padding:16px 0}
+    .cards:hover .card{opacity:1}
+    #spot{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none}.loc .dot{animation:none}
+    .card,.cards:hover .card{transition:none;opacity:1}
+  }
 </style>
 </head>
 <body>
+<div id="spot"></div>
 
-<nav>
-  <div class="wrap">
-    <span class="logo">miguelmialdea<span class="accent">.dev</span></span>
-    <div class="navlinks">
-      <a href="#stack">Stack</a>
-      <a href="#experience">Experience</a>
-      <a href="#work">Work</a>
-      <a href="#contact">Contact</a>
+<div class="layout">
+
+  <!-- LEFT — sticky identity -->
+  <aside class="left">
+    <div>
+      <h1><a href="#top">Miguel Ángel<br>Mialdea</a></h1>
+      <div class="role">Senior Android Engineer</div>
+      <p class="tag">I build <b>native Android apps</b> in Kotlin for high-stakes <b>Fintech</b> — banking &amp; payments used across multiple countries.</p>
+      <div class="loc"><span class="dot"></span>VALENCIA, SPAIN · REMOTE</div>
+
+      <nav class="navcol" aria-label="Section navigation">
+        <a href="#about" class="active">ABOUT</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#work">WORK</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
     </div>
-  </div>
-</nav>
 
-<header>
-  <div class="wrap">
-    <div class="kicker"><span class="dot"></span>SENIOR ANDROID ENGINEER · VALENCIA, SPAIN · REMOTE</div>
-    <h1>Miguel Ángel<br>Mialdea</h1>
-    <p class="sub">I build <b>native Android apps</b> in Kotlin for high-stakes <b>Fintech</b> — banking and payments used across multiple countries.</p>
-    <div class="meta">
-      <span class="chip"><b>~5y</b> Android / Kotlin</span>
-      <span class="chip"><b>Fintech</b> Santander · Openbank</span>
-      <span class="chip"><b>Compose</b> · KMP · Clean Arch</span>
+    <div class="social">
+      <a href="https://github.com/MiguelMialdeaDev" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/miguel-mialdea-dev" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+      </a>
+      <a href="mailto:miguelmialdeamonzo@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
     </div>
-    <div class="cta">
-      <a class="btn primary" href="mailto:miguelmialdeamonzo@gmail.com">Get in touch</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/miguel-mialdea-dev" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn ghost" href="https://github.com/MiguelMialdeaDev" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </div>
-</header>
+  </aside>
 
-<section id="about">
-  <div class="wrap reveal">
-    <div class="sec-label">About</div>
-    <p class="lead">Senior Android Engineer with <b>4 years and 8 months</b> of experience designing, building and optimizing native applications, with a strong focus on the <b>Fintech</b> industry. Expert in advanced asynchronous concurrency with <b>Kotlin Coroutines &amp; Flow</b> and rigorous <b>Clean Architecture / MVVM / MVI</b>. I drive critical engineering initiatives — from large-scale test refactoring to highly extensible, multi-country architectures — and I'm currently contributing to internal <b>AI application</b> development.</p>
-  </div>
-</section>
+  <!-- RIGHT — scrolling content -->
+  <main class="right" id="top">
 
-<section id="stack">
-  <div class="wrap reveal">
-    <div class="sec-label">Tech Stack</div>
-    <h2>What I work with</h2>
-    <div class="stack" style="margin-top:26px">
-      <div class="scat">
-        <h3>Languages</h3>
-        <ul><li>Kotlin</li><li>Java</li></ul>
+    <section id="about" class="about reveal">
+      <div class="m-label">About</div>
+      <p>I'm a Senior Android Engineer with <b>4 years and 8 months</b> of experience designing, building and optimizing native applications, focused on the <span class="hl">Fintech</span> industry — banking and digital payments where correctness isn't optional.</p>
+      <p>My core is <b>Kotlin</b>: advanced asynchronous concurrency with <b>Coroutines &amp; Flow</b>, and rigorous <b>Clean Architecture / MVVM / MVI</b>. I like owning critical engineering initiatives end to end — large-scale test refactoring, multi-country extensible architectures — and lately I've been building <b>AI-powered applications</b>, both at work and on my own stack.</p>
+      <div class="nums">
+        <div><div class="n">~5<span>y</span></div><div class="d">ANDROID / KOTLIN</div></div>
+        <div><div class="n">3,000<span>+</span></div><div class="d">TESTS MIGRATED J4→J5</div></div>
+        <div><div class="n">100<span>%</span></div><div class="d">COUNTRY EXTENSIBILITY</div></div>
       </div>
-      <div class="scat">
-        <h3>UI</h3>
-        <ul><li>Jetpack Compose</li><li>Compose Navigation</li><li>XML Layouts</li><li>Material 3</li><li>Accessibility</li></ul>
-      </div>
-      <div class="scat">
-        <h3>Architecture</h3>
-        <ul><li>Clean Architecture</li><li>MVVM</li><li>MVI</li><li>Hilt</li><li>Koin</li></ul>
-      </div>
-      <div class="scat">
-        <h3>Concurrency</h3>
-        <ul><li>Coroutines</li><li>Flow</li><li>Advanced Threading</li></ul>
-      </div>
-      <div class="scat">
-        <h3>Data</h3>
-        <ul><li>Room</li><li>REST</li><li>SOAP</li><li>Retrofit</li></ul>
-      </div>
-      <div class="scat">
-        <h3>Testing &amp; Build</h3>
-        <ul><li>JUnit 4 / 5</li><li>Test Coverage</li><li>Git</li><li>Gradle</li></ul>
-      </div>
-      <div class="scat">
-        <h3>Cross-platform</h3>
-        <ul><li>Kotlin Multiplatform</li><li>Compose Multiplatform</li></ul>
-      </div>
-      <div class="scat">
-        <h3>Domain</h3>
-        <ul><li>Fintech / Payments</li><li>AI App Development</li><li>Video / Multimedia</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="experience">
-  <div class="wrap reveal">
-    <div class="sec-label">Experience</div>
-    <h2>Where I've worked</h2>
-    <div style="margin-top:26px">
-      <div class="job">
-        <div class="when">2023 — Present<span class="co">Globant</span></div>
-        <div>
-          <h3>Senior Android Engineer</h3>
-          <div class="role-sub">Santander &amp; Openbank projects · internal AI initiative</div>
-          <ul>
-            <li><b>Multi-country extensibility (Openbank):</b> engineered configuration in the payments repository to reach 100% country extensibility, standardizing the codebase for fast adaptation to new markets.</li>
-            <li><b>Large-scale testing (Santander):</b> led the full migration of <b>3,000+ unit tests</b> from JUnit 4 to JUnit 5, significantly improving build and compilation speed.</li>
-            <li><b>AI &amp; multimedia:</b> currently developing applications for an internal AI initiative; previously built complex video-streaming functionality for an internal product.</li>
-            <li><b>Accessibility:</b> worked in the dedicated a11y team, adapting screens and UI components to meet accessibility standards.</li>
-          </ul>
+    <section id="experience" class="reveal">
+      <div class="m-label">Experience</div>
+      <div class="cards">
+
+        <div class="card">
+          <div class="when">2023 — Present</div>
+          <div>
+            <h3><span class="co">Senior Android Engineer · Globant</span></h3>
+            <div class="sub">Santander &amp; Openbank projects · internal AI initiative</div>
+            <ul class="points">
+              <li><b>Multi-country extensibility (Openbank):</b> engineered configuration in the payments repository to reach 100% country extensibility, enabling fast adaptation to new markets.</li>
+              <li><b>Large-scale testing (Santander):</b> led the migration of 3,000+ unit tests from JUnit 4 to JUnit 5, significantly improving build speed.</li>
+              <li><b>AI &amp; multimedia:</b> building apps for an internal AI initiative; previously shipped complex video-streaming functionality.</li>
+              <li><b>Accessibility:</b> adapted screens and UI components in the dedicated a11y team.</li>
+            </ul>
+            <ul class="pills"><li>Kotlin</li><li>Jetpack Compose</li><li>Coroutines · Flow</li><li>Hilt</li><li>MVI</li><li>JUnit 5</li><li>Accessibility</li></ul>
+          </div>
         </div>
-      </div>
-      <div class="job">
-        <div class="when">2021 — 2023<span class="co">Rudo · Laberit</span></div>
-        <div>
-          <h3>Android Developer</h3>
-          <div class="role-sub">Green-field products &amp; client technical consulting</div>
-          <ul>
-            <li><b>Full-cycle green-field (Hidroten):</b> owned the entire lifecycle of a PVC-factory inventory app — architecture, UI, core business logic with SOAP integration, and client bug resolution.</li>
-            <li><b>Technical consulting (Loterías Castillo):</b> architected and built the mock-up logic and design for a preliminary MVP demo, managing client communication directly.</li>
-            <li>Collaborated with the international Santander team (Poland) on bug-fixing; resolved issues for the El Pibe delivery app.</li>
-          </ul>
+
+        <div class="card">
+          <div class="when">2021 — 2023</div>
+          <div>
+            <h3><span class="co">Android Developer · Rudo (Laberit)</span></h3>
+            <div class="sub">Green-field products &amp; client technical consulting</div>
+            <ul class="points">
+              <li><b>Full-cycle green-field (Hidroten):</b> owned the entire lifecycle of a factory inventory app — architecture, UI, SOAP business logic, client bug resolution.</li>
+              <li><b>Technical consulting (Loterías Castillo):</b> architected and built an MVP demo, managing client communication directly.</li>
+              <li>Collaborated with the international Santander team (Poland) on bug-fixing.</li>
+            </ul>
+            <ul class="pills"><li>Kotlin</li><li>XML</li><li>MVVM</li><li>SOAP · REST</li><li>Koin</li></ul>
+          </div>
         </div>
+
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="work">
-  <div class="wrap reveal">
-    <div class="sec-label">Selected Work</div>
-    <h2>Beyond the day job</h2>
-    <p class="lead" style="margin-bottom:28px">Side projects where I own the full stack — from architecture to deployment.</p>
-
-    <div class="proj">
-      <div class="ptop">
+    <section id="work" class="reveal">
+      <div class="m-label">Selected Work</div>
+      <div class="proj">
         <span class="ptag">PERSONAL PLATFORM</span>
+        <h3>Jarvis — AI Personal Assistant</h3>
+        <p>A self-hosted assistant platform that orchestrates a large-language-model agent over real tools: tasks, projects, calendar, briefings and automated data pipelines. Built end to end — <b>backend, real-time web HUD, voice, offline PWA and deployment</b> — as a testbed for LLM tool-use orchestration and production-grade async Python.</p>
+        <div class="feat">
+          <div><h4>Agentic core</h4><p>LLM + tool-calling</p></div>
+          <div><h4>Real-time HUD</h4><p>live web dashboard</p></div>
+          <div><h4>Voice interface</h4><p>speech in / TTS out</p></div>
+          <div><h4>Offline-first PWA</h4><p>service worker + cache</p></div>
+        </div>
+        <ul class="pills" style="margin-top:22px"><li>Python</li><li>FastAPI</li><li>asyncio</li><li>Claude Agent SDK</li><li>WebSockets</li><li>PWA</li><li>Edge-TTS</li></ul>
+        <p class="pnote">Private project — architecture &amp; engineering shown; no live instance or personal data is exposed.</p>
       </div>
-      <h3>Jarvis — AI Personal Assistant</h3>
-      <p class="pdesc">A self-hosted assistant platform that orchestrates a large-language-model agent over real tools: tasks, projects, calendar, briefings and automated data pipelines. Built end-to-end — <b>backend, real-time web HUD, voice, offline PWA and deployment</b> — as a testbed for LLM tool-use orchestration and production-grade async Python.</p>
+    </section>
 
-      <div class="feat">
-        <div><h4>Agentic core</h4><p>LLM + tool-calling</p></div>
-        <div><h4>Real-time HUD</h4><p>live web dashboard</p></div>
-        <div><h4>Voice interface</h4><p>speech in / TTS out</p></div>
-        <div><h4>Offline-first PWA</h4><p>service worker + cache</p></div>
+    <section id="education" class="reveal">
+      <div class="m-label">Education</div>
+      <div class="edu">
+        <div><b>DAW — Development of Web Applications</b> <span>· Vocational Training · 2020 – 2021</span></div>
+        <div><b>DAM — Development of Multi-Platform Applications</b> <span>· Vocational Training · 2018 – 2020</span></div>
       </div>
+    </section>
 
-      <div class="ptech">
-        <span>Python</span><span>FastAPI</span><span>Async / asyncio</span><span>Claude Agent SDK</span>
-        <span>WebSockets</span><span>PWA</span><span>Service Worker</span><span>Edge-TTS</span><span>REST integrations</span>
-      </div>
+    <section id="contact" class="reveal" style="margin-bottom:40px">
+      <div class="m-label">Contact</div>
+      <p class="foot" style="font-family:Inter,sans-serif;font-size:15.5px;color:var(--text)">Open to senior Android / KMP conversations — remote, or on-site in Valencia. If you're building a team that cares about clean, well-tested native apps, let's talk.</p>
+      <a class="cta-inline" href="mailto:miguelmialdeamonzo@gmail.com">miguelmialdeamonzo@gmail.com ↗</a>
+      <p class="foot" style="margin-top:48px">Designed &amp; built from scratch by me. © <span id="yr"></span> · <span style="color:var(--accent)">miguelmialdea.dev</span></p>
+    </section>
 
-      <p class="pnote">Private project — architecture &amp; engineering shown; no live instance or personal data is exposed.</p>
-    </div>
-  </div>
-</section>
-
-<section id="education" style="padding-bottom:20px">
-  <div class="wrap reveal">
-    <div class="sec-label">Education</div>
-    <div class="job" style="border-bottom:none;padding-bottom:0">
-      <div class="when">2018 — 2021<span class="co" style="color:var(--dim)">Vocational Training</span></div>
-      <div>
-        <ul style="gap:6px">
-          <li><b>DAW</b> — Development of Web Applications (2020 – 2021)</li>
-          <li><b>DAM</b> — Development of Multi-Platform Applications (2018 – 2020)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap reveal">
-    <div class="sec-label" style="text-align:left">Contact</div>
-    <h2>Let's build something solid.</h2>
-    <p>Open to senior Android / KMP roles — remote, or on-site in Valencia. If you're hiring for a team that cares about clean, well-tested native apps, let's talk.</p>
-    <div class="links">
-      <a class="btn primary" href="mailto:miguelmialdeamonzo@gmail.com">Email me</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/miguel-mialdea-dev" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn ghost" href="https://github.com/MiguelMialdeaDev" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">© <span id="yr"></span> Miguel Ángel Mialdea · Built from scratch · <span class="mono accent">miguelmialdea.dev</span></div>
-</footer>
+  </main>
+</div>
 
 <script>
   document.getElementById("yr").textContent = new Date().getFullYear();
-  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});
+
+  // spotlight follows cursor
+  const spot = document.getElementById("spot");
+  window.addEventListener("mousemove", (e) => {
+    spot.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(29,78,116,.18), transparent 80%)`;
+  }, { passive: true });
+
+  // reveal on scroll
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.1});
   document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+  // active nav link on scroll
+  const links = document.querySelectorAll(".navcol a");
+  const secs = ["about","experience","work","contact"].map(id=>document.getElementById(id));
+  const nav = new IntersectionObserver((es)=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.toggle("active", l.getAttribute("href")==="#"+e.target.id));
+      }
+    });
+  },{rootMargin:"-30% 0px -60% 0px"});
+  secs.forEach(s=>s&&nav.observe(s));
 </script>
 </body>
 </html>
