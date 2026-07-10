@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Miguel Ángel Mialdea — CV</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --ink:#111827; --soft:#4b5563; --faint:#9ca3af; --line:#e5e7eb;
+    --acc:#0f766e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#fff}
+  body{
+    font-family:"Segoe UI",-apple-system,Roboto,Arial,sans-serif;color:var(--ink);
+    font-size:10.3pt;line-height:1.5;width:210mm;min-height:297mm;padding:14mm 16mm 12mm;
+  }
+  a{color:var(--acc);text-decoration:none}
+
+  /* header */
+  h1{font-size:23pt;font-weight:700;letter-spacing:-.5px}
+  .role{font-size:12.5pt;color:var(--acc);font-weight:600;margin-top:1mm}
+  .contact{margin-top:2.5mm;font-size:9.3pt;color:var(--soft)}
+  .contact span{white-space:nowrap}
+  .contact .sep{color:var(--faint);margin:0 1.5mm}
+
+  .rule{height:2px;background:var(--acc);margin:5mm 0 4mm;opacity:.85}
+
+  h2{font-size:10.5pt;letter-spacing:1.6px;text-transform:uppercase;color:var(--acc);
+     margin:5mm 0 2.5mm;font-weight:700}
+  p.sum{color:var(--soft)}
+  p.sum b{color:var(--ink)}
+
+  /* experience */
+  .job{margin-bottom:4mm}
+  .job-head{display:flex;justify-content:space-between;align-items:baseline}
+  .job-head h3{font-size:11pt;font-weight:700}
+  .job-head h3 .co{color:var(--acc)}
+  .when{font-size:9pt;color:var(--faint);font-weight:600;white-space:nowrap}
+  .job .sub{font-size:9.2pt;color:var(--faint);margin-bottom:1.2mm}
+  ul{list-style:none;margin-top:1mm}
+  li{position:relative;padding-left:4.5mm;color:var(--soft);margin-bottom:1.1mm}
+  li::before{content:"▸";position:absolute;left:0;color:var(--acc)}
+  li b{color:var(--ink)}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:1fr 1fr;gap:1.6mm 8mm}
+  .sk{display:flex;gap:2.5mm;font-size:9.6pt}
+  .sk b{color:var(--ink);white-space:nowrap;min-width:26mm;font-weight:700}
+  .sk span{color:var(--soft)}
+
+  .two{display:grid;grid-template-columns:1.25fr 1fr;gap:0 10mm}
+
+  .edu div{margin-bottom:1.6mm;color:var(--soft)}
+  .edu b{color:var(--ink)}
+  .edu .when2{color:var(--faint);font-size:9pt}
+
+  .footer-note{margin-top:4mm;font-size:8.6pt;color:var(--faint)}
+</style>
+</head>
+<body>
+
+<h1>Miguel Ángel Mialdea</h1>
+<div class="role">Senior Android Engineer · Kotlin · Jetpack Compose · KMP</div>
+<div class="contact">
+  <span>Valencia, Spain (remote)</span><span class="sep">·</span>
+  <span><a href="mailto:miguelmialdeamonzo@gmail.com">miguelmialdeamonzo@gmail.com</a></span><span class="sep">·</span>
+  <span><a href="https://miguelmialdea.dev">miguelmialdea.dev</a></span><span class="sep">·</span>
+  <span><a href="https://www.linkedin.com/in/miguel-mialdea-dev">linkedin.com/in/miguel-mialdea-dev</a></span><span class="sep">·</span>
+  <span><a href="https://github.com/MiguelMialdeaDev">github.com/MiguelMialdeaDev</a></span>
+</div>
+
+<div class="rule"></div>
+
+<h2>Summary</h2>
+<p class="sum">Senior Android Engineer with <b>5+ years of experience</b> (since March 2021) designing, building and optimizing native applications, focused on the <b>Fintech</b> industry — banking and digital payments used across multiple countries. Expert in advanced asynchronous concurrency with <b>Kotlin Coroutines &amp; Flow</b> and rigorous <b>Clean Architecture / MVVM / MVI</b>. I own critical engineering initiatives end to end: large-scale test refactoring, multi-country extensible architectures, accessibility, and lately <b>AI-powered application development</b>.</p>
+
+<h2>Experience</h2>
+
+<div class="job">
+  <div class="job-head">
+    <h3>Senior Android Engineer · <span class="co">Globant</span></h3>
+    <span class="when">2023 — Present · Remote, Spain</span>
+  </div>
+  <div class="sub">Santander &amp; Openbank projects · internal AI initiative · digital payments division</div>
+  <ul>
+    <li><b>Multi-country extensibility (Openbank):</b> engineered configuration within the payments repository to reach 100% country extensibility, standardizing the codebase and enabling fast adaptation to new geographical markets.</li>
+    <li><b>Large-scale testing optimization (Santander):</b> led the full migration of <b>3,000+ unit tests</b> from JUnit 4 to JUnit 5, significantly improving build and compilation speed for the whole team.</li>
+    <li><b>AI &amp; multimedia:</b> currently building applications for an internal AI initiative; previously shipped complex video-streaming functionality for an internal product.</li>
+    <li><b>Accessibility:</b> worked in the dedicated a11y team, adapting screens and UI components to meet accessibility standards.</li>
+    <li>Implemented features across all architectural layers (data, domain, presentation) in a high-stakes digital payments environment.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <h3>Android Developer · <span class="co">Rudo (Laberit)</span></h3>
+    <span class="when">Mar 2021 — 2023 · Valencia, Spain</span>
+  </div>
+  <div class="sub">Green-field products &amp; client technical consulting</div>
+  <ul>
+    <li><b>Full-cycle green-field (Hidroten):</b> owned the entire lifecycle of a factory inventory application — architecture definition, UI, core business logic with SOAP integration, and client-facing bug resolution.</li>
+    <li><b>Technical consulting (Loterías Castillo):</b> architected and built the MVP demo, managing technical communication with the client directly.</li>
+    <li>Collaborated with the international Santander team (Poland) on bug fixing; resolved issues for the El Pibe food-delivery app.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <h3>Independent Product Engineering</h3>
+    <span class="when">Ongoing · side projects</span>
+  </div>
+  <ul>
+    <li><b>Jarvis — self-hosted AI assistant platform:</b> LLM agent orchestration over real tools (tasks, calendar, data pipelines), real-time web HUD, voice interface and offline-first PWA. Python / FastAPI / asyncio / Claude Agent SDK.</li>
+    <li><b>Web studio for local businesses:</b> design-to-production websites shipped in days, including client management end to end.</li>
+  </ul>
+</div>
+
+<div class="two">
+<div>
+<h2>Technical Skills</h2>
+<div class="skills" style="grid-template-columns:1fr">
+  <div class="sk"><b>Languages</b><span>Kotlin (5+ y) · Java</span></div>
+  <div class="sk"><b>UI</b><span>Jetpack Compose · Compose Navigation · XML · Material 3 · Accessibility</span></div>
+  <div class="sk"><b>Architecture</b><span>Clean Architecture · MVVM · MVI · Hilt · Koin · KSP</span></div>
+  <div class="sk"><b>Concurrency</b><span>Coroutines · Flow · advanced threading</span></div>
+  <div class="sk"><b>Data / API</b><span>Room · Retrofit · REST · SOAP</span></div>
+  <div class="sk"><b>Quality</b><span>JUnit 4/5 · test coverage · Baseline Profiles · Macrobenchmark</span></div>
+  <div class="sk"><b>Cross-platform</b><span>Kotlin Multiplatform · Compose Multiplatform</span></div>
+  <div class="sk"><b>Tooling</b><span>Git · Gradle · CI/CD (GitHub Actions) · Play Store publishing</span></div>
+  <div class="sk"><b>Specialties</b><span>Fintech (payments/banking) · AI app development · video/multimedia</span></div>
+</div>
+</div>
+<div>
+<h2>Education</h2>
+<div class="edu">
+  <div><b>DAW — Development of Web Applications</b><br><span class="when2">Vocational Training Degree · 2020 – 2021</span></div>
+  <div><b>DAM — Development of Multi-Platform Applications</b><br><span class="when2">Vocational Training Degree · 2018 – 2020</span></div>
+</div>
+<h2>Languages</h2>
+<div class="edu">
+  <div><b>Spanish</b> — native</div>
+  <div><b>English</b> — professional working proficiency</div>
+</div>
+</div>
+</div>
+
+<p class="footer-note">More at miguelmialdea.dev · References available on request</p>
+
+</body>
+</html>
